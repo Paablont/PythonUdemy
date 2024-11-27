@@ -26,12 +26,13 @@ def comprobar_letra(letra,palabra_oculta):
 
 
 print(f'Bienvenido al juego del ahorcado. La palabra oculta es: ')
-mostrar_guiones(palabra_oculta)
+
 print()
 vidas = 5
 letra = ''
 while vidas > 0:
-
+        mostrar_guiones(palabra_oculta)
+        print()
         letra_usuario = input('Introduce una letra ').lower()
         print()
         if not comprobar_letra(letra_usuario,palabra_oculta):
