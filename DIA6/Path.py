@@ -1,11 +1,22 @@
 from pathlib import Path
 
-#Manejo de directorios MEJORADO. La diferencia principal es que esto es universal entre Linux, MAC y Windows
+#ruta absoluta
+base = Path.home()
+#Construir una ruta con path
+guia = Path(base,'Barcelona','Sagrada Familia.txt')
+#cambiar el archivo de destino
+guia2 = guia.with_name('Las ramblas.txt')
+print(base)
+print(guia) #No es una ruta, pero construye una posible ruta
+print(guia2)
+print()
+guia_europa = Path(Path.home(),'Europa')
+#los path son iterables
+#Este for solo recorrera los archivos .txt de la carpeta Europa
+for i in Path(guia_europa).glob('*.txt'):
+    print(i)
 
-carpeta = Path('C:/Users/pvillasenor/PythonProjects/PythonUdemy/DIA6/rutas')
-
-archivo = carpeta / 'rutas.txt'
-
-#asi creamos la ruta completa
-mi_archivo = open(archivo)
-print(mi_archivo.read())
+print()
+#Para iterar toda la carpeta
+for i in Path(guia_europa).glob('**/*.txt'):
+    print(i)
